@@ -1,6 +1,0 @@
-/* IKKEN webfonts — Newshound family (supplied by the brand, OTF) */
-@font-face{font-family:"Newshound";src:url("../assets/fonts/newshound-regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Newshound";src:url("../assets/fonts/newshound-bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"Newshound Subhead";src:url("../assets/fonts/newshound-subhead.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Newshound Headline";src:url("../assets/fonts/newshound-headline.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Newshound Banner";src:url("../assets/fonts/newshound-banner.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
