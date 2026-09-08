@@ -161,6 +161,34 @@ body {
 }
 
 /* ---------------------------------------------------------------------
+   2b. Homepage — the hero media (image or video) becomes a fixed,
+       full-viewport backdrop instead of a bounded top section, so the
+       same image/video is visible continuously behind the philosophy
+       statement, the editorial pair, and the footer as the page
+       scrolls — one plate for the whole page, not a hero band that
+       ends before the footer.
+   --------------------------------------------------------------------- */
+.page-type-index #shopify-section-hero_home {
+  position: fixed;
+  inset: 0;
+  z-index: var(--layer-section-background, -2);
+  width: 100vw;
+  height: 100dvh;
+}
+
+.page-type-index #shopify-section-hero_home .hero,
+.page-type-index #shopify-section-hero_home img,
+.page-type-index #shopify-section-hero_home video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-type-index main#MainContent {
+  background: transparent;
+}
+
+/* ---------------------------------------------------------------------
    3. Header — logo top-left, cart + language top-right, no fill.
       Horizon's own sticky-header mechanics are left untouched; only its
       colours, borders and type are re-skinned.
@@ -182,19 +210,19 @@ body {
   color: var(--ikken-ink-900);
 }
 
-/* The primary nav lives in the footer (see below), not the header — hide
-   Horizon's <header-menu> custom element. It's unconditionally rendered by
-   sections/header.liquid regardless of block settings, so this is the only
-   way to remove it without forking that file. */
-#header-component header-menu {
-  display: none !important;
+.header-menu,
+#header-component nav {
+  font-family: var(--ikken-font-ui);
+  font-weight: 700;
+  letter-spacing: var(--ikken-tr-nav);
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 /* ---------------------------------------------------------------------
-   4. Footer — "the nav is the footer". The primary nav sits fixed at
-      bottom-center, with the wordmark and a minimal legal line as the
-      other two fixed corner marks — floating over the scrolling
-      content, never a filled footer bar.
+   4. Footer — the wordmark and a minimal legal line as fixed corner
+      marks, floating over the scrolling content. Never a filled footer
+      bar. Primary nav stays in the header (see section 3).
    --------------------------------------------------------------------- */
 .page-wrapper > footer {
   background: transparent;
@@ -213,8 +241,7 @@ body {
 }
 
 .ikken-wordmark,
-.ikken-legal,
-.page-wrapper > footer .menu {
+.ikken-legal {
   position: fixed;
   bottom: var(--ikken-frame-inset-y);
   z-index: var(--layer-sticky, 8);
@@ -223,53 +250,6 @@ body {
 
 .ikken-wordmark {
   right: var(--ikken-frame-inset-x);
-}
-
-/* Footer nav — block markup is .menu > details > nav.details-content >
-   ul.list-unstyled > li > a. The heading/summary is hidden (blank on
-   purpose) and the link list is laid out as a centered horizontal row. */
-.page-wrapper > footer .menu {
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-}
-
-.page-wrapper > footer .menu summary,
-.page-wrapper > footer .menu .menu__heading {
-  display: none;
-}
-
-.page-wrapper > footer .menu ul {
-  display: flex;
-  gap: var(--ikken-frame-inset-x);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.page-wrapper > footer .menu a {
-  font-family: var(--ikken-font-ui);
-  font-weight: 700;
-  letter-spacing: var(--ikken-tr-nav);
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  color: var(--ikken-ink-900);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.page-wrapper > footer .menu a:hover {
-  opacity: var(--ikken-hover-fade);
-}
-
-@media (max-width: 749px) {
-  .page-wrapper > footer .menu ul {
-    gap: var(--ikken-frame-inset-y);
-  }
-
-  .page-wrapper > footer .menu a {
-    font-size: 0.625rem;
-  }
 }
 
 .ikken-wordmark img {

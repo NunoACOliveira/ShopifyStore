@@ -14,15 +14,6 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "main_nav": {
-          "type": "menu",
-          "settings": {
-            "menu": "main-menu",
-            "heading": "",
-            "show_as_accordion": false
-          },
-          "blocks": {}
-        },
         "wordmark": {
           "type": "custom-liquid",
           "settings": {
@@ -40,7 +31,6 @@
       },
       "block_order": [
         "legal",
-        "main_nav",
         "wordmark"
       ],
       "name": "t:names.footer",
