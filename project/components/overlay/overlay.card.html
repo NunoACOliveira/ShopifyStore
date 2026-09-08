@@ -1,0 +1,26 @@
+<!-- @dsCard group="Components" viewport="700x380" name="Overlay — splash and cart" subtitle="PRESS TO ENTER over full-bleed imagery; the cart drawer it implies" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><style>*{box-sizing:border-box}html,body{margin:0}body{background:var(--paper-200);background-image:var(--texture-page);background-size:cover;color:var(--text-primary);font-family:var(--font-body)}#root{padding:24px}a{color:var(--link)}a:hover{color:var(--link-hover)}.lbl{font-family:var(--font-ui);font-weight:700;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-400)}#root{padding:0;height:380px;position:relative;display:flex}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { EnterSplash, CartPanel, TextLink } = window.IKKENDesignSystem_c61fa2;
+const lines=[
+  {key:'1',image:'../../assets/products/product-09.jpg',name:'STONE TEE',variant:'brick / m',qty:1,price:'€ 65,00'},
+  {key:'2',image:'../../assets/products/product-10.jpg',name:'LONG SLEEVE',variant:'bone / l',qty:1,price:'€ 85,00'},
+];
+function Card(){
+  const [open,setOpen]=React.useState(true);
+  return (<div style={{position:'relative',flex:1,display:'flex'}}>
+    <div style={{width:'46%',position:'relative'}}>
+      <EnterSplash image="../../refs/layout-home.jpg" onEnter={()=>{}} />
+    </div>
+    <div style={{flex:1,position:'relative',background:'var(--paper-200)'}}>
+      {!open && <div style={{position:'absolute',inset:0,display:'grid',placeItems:'center'}}><TextLink as="button" onClick={()=>setOpen(true)}>OPEN CART</TextLink></div>}
+      <CartPanel open={open} items={lines} total="€ 150,00" width={300} onClose={()=>setOpen(false)} onRemove={()=>{}} />
+    </div>
+  </div>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card />);
+</script></body></html>

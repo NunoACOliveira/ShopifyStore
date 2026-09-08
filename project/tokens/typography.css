@@ -1,0 +1,37 @@
+:root{
+/* Families — Newshound is the entire voice of the brand. No secondary typeface. */
+--font-display:"Newshound",ui-sans-serif,sans-serif;            /* + --fw-bold. Product titles, big statements */
+--font-ui:"Newshound",ui-sans-serif,sans-serif;                 /* + --fw-bold + --tr-nav. Nav, cart, BACK/NEXT */
+--font-body:"Newshound",ui-sans-serif,sans-serif;               /* weight 400. Running copy, about, descriptions */
+--font-condensed:"Newshound Headline","Newshound",ui-sans-serif,sans-serif; /* narrow: long labels, care text, T&C */
+--font-condensed-tight:"Newshound Banner","Newshound",ui-sans-serif,sans-serif; /* narrowest: lookbook captions */
+--font-subhead:"Newshound Subhead","Newshound",ui-sans-serif,sans-serif;    /* section marks, "about" lowercase title */
+
+/* Sizes — small, sparse, generously letterspaced */
+--fs-2xs:11px;
+--fs-xs:12px;
+--fs-sm:14px;
+--fs-md:16px;
+--fs-lg:20px;
+--fs-xl:28px;
+--fs-2xl:40px;
+--fs-3xl:64px;
+--fs-4xl:96px;
+
+--lh-tight:1.05; /* @kind other */
+--lh-snug:1.2; /* @kind other */
+--lh-body:1.6; /* @kind other */
+--lh-loose:1.9; /* @kind other */
+
+/* Tracking — the signature. Nav and labels are widely tracked, uppercase. */
+--tr-nav:0.34em; /* @kind other */
+--tr-label:0.22em; /* @kind other */
+--tr-title:0.06em; /* @kind other */
+--tr-body:0.02em; /* @kind other */
+
+--case-nav:uppercase; /* @kind other */
+
+/* Weights */
+--fw-regular:400; /* @kind other */
+--fw-bold:700; /* @kind other */
+}

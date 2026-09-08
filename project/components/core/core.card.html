@@ -1,0 +1,32 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Core — links, button, field, hairline" subtitle="The only interactive primitives: tracked type, one underlined button, hairline field" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><style>*{box-sizing:border-box}html,body{margin:0}body{background:var(--paper-200);background-image:var(--texture-page);background-size:cover;color:var(--text-primary);font-family:var(--font-body)}#root{padding:24px}a{color:var(--link)}a:hover{color:var(--link-hover)}.lbl{font-family:var(--font-ui);font-weight:700;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-400)}.row{display:flex;gap:40px;align-items:flex-end;flex-wrap:wrap}.col{display:flex;flex-direction:column;gap:10px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { TextLink, Button, Field, Hairline } = window.IKKENDesignSystem_c61fa2;
+function Card(){
+  const [v,setV]=React.useState('');
+  return (<div className="col" style={{gap:28}}>
+    <div className="col"><span className="lbl">TextLink — default / dimmed / muted / small</span>
+      <div className="row" style={{gap:32}}>
+        <TextLink href="#">SHOP</TextLink>
+        <TextLink href="#" dimmed>ABOUT</TextLink>
+        <TextLink href="#" muted size="var(--fs-xs)" tracking="var(--tr-label)">REMOVE</TextLink>
+        <TextLink href="#" size="var(--fs-2xs)" tracking="var(--tr-label)">T&amp;C</TextLink>
+      </div></div>
+    <div className="row" style={{gap:56,alignItems:'flex-end'}}>
+      <div className="col" style={{width:190}}><span className="lbl">Button — md / disabled / sm</span>
+        <Button block>ADD TO CART</Button>
+        <Button block disabled>SOLD OUT</Button>
+        <Button size="sm">CHECKOUT</Button></div>
+      <div className="col" style={{width:220}}><span className="lbl">Field</span>
+        <Field label="Email" value={v} onChange={e=>setV(e.target.value)} placeholder="you@somewhere" /></div>
+      <div className="col" style={{width:120}}><span className="lbl">Hairline</span>
+        <Hairline /><Hairline strong /></div>
+    </div>
+  </div>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card />);
+</script></body></html>

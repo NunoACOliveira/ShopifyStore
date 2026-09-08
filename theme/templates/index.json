@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_home": {
+      "type": "hero",
+      "blocks": {},
+      "block_order": [],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "content_direction": "column",
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-end",
+        "section_width": "full-width",
+        "section_height": "large",
+        "toggle_overlay": false,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "philosophy": {
+      "type": "section",
+      "blocks": {
+        "line_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>nothing is finished.</p>",
+            "width": "fit-content",
+            "alignment": "center",
+            "type_preset": "h5",
+            "font": "var(--font-subheading--family)",
+            "font_size": "1.25rem",
+            "case": "none"
+          }
+        },
+        "line_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>everything wears.</p>",
+            "width": "fit-content",
+            "alignment": "center",
+            "type_preset": "h5",
+            "font": "var(--font-subheading--family)",
+            "font_size": "1.25rem",
+            "case": "none",
+            "padding-block-start": 8
+          }
+        },
+        "line_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>one stone, one mark.</p>",
+            "width": "fit-content",
+            "alignment": "center",
+            "type_preset": "h5",
+            "font": "var(--font-subheading--family)",
+            "font_size": "1.25rem",
+            "case": "none",
+            "padding-block-start": 8,
+            "padding-block-end": 32
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ikken makes one thing at a time. clothes first — then tea, pots, ashtrays, objects for the house. each piece is dyed and stamped by hand, so no two land the same.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "case": "none",
+            "padding-block-end": 32
+          }
+        },
+        "enter_shop": {
+          "type": "button",
+          "settings": {
+            "label": "ENTER THE SHOP",
+            "link": "shopify://collections/all",
+            "style_class": "button",
+            "width": "fit-content"
+          }
+        }
+      },
+      "block_order": [
+        "line_1",
+        "line_2",
+        "line_3",
+        "body",
+        "enter_shop"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "padding-block-start": 96,
+        "padding-block-end": 96
+      }
+    },
+    "editorial_pair": {
+      "type": "section",
+      "blocks": {
+        "outdoors": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "portrait",
+            "width": "fill"
+          }
+        },
+        "studio": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "portrait",
+            "width": "fill"
+          }
+        }
+      },
+      "block_order": [
+        "outdoors",
+        "studio"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 96
+      }
+    }
+  },
+  "order": [
+    "hero_home",
+    "philosophy",
+    "editorial_pair"
+  ]
+}

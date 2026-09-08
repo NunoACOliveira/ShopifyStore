@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:names.footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "wordmark": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"ikken-wordmark\"><a href=\"{{ routes.root_url }}\" aria-label=\"{{ shop.name | escape }}\"><img src=\"{{ 'logo-wordmark.png' | asset_url }}\" width=\"150\" height=\"45\" alt=\"{{ shop.name | escape }}\" loading=\"lazy\"></a></div>"
+          },
+          "blocks": {}
+        },
+        "legal": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"ikken-legal\">{% if shop.policies.privacy_policy.body != blank or shop.policies.terms_of_service.body != blank %}{% if shop.policies.privacy_policy.body != blank %}<a href=\"{{ shop.policies.privacy_policy.url }}\">PRIVACY</a>{% endif %}{% if shop.policies.terms_of_service.body != blank %} &middot; <a href=\"{{ shop.policies.terms_of_service.url }}\">TERMS</a>{% endif %}{% endif %}</div>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "legal",
+        "wordmark"
+      ],
+      "name": "t:names.footer",
+      "settings": {
+        "section_width": "page-width",
+        "gap": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

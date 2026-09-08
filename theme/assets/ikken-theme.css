@@ -1,0 +1,428 @@
+/* =====================================================================
+   IKKEN — brand layer on top of Horizon
+   ---------------------------------------------------------------------
+   This file never edits Horizon's own CSS. It only:
+     1. declares the brand's webfonts and design tokens, and
+     2. re-points Horizon's existing custom properties / stable classes
+        at those tokens, so every native Horizon component (buttons,
+        cards, swatches, drawers, forms) inherits the brand look without
+        forking its markup or logic.
+   Loaded after theme-styles-variables + color-palette in theme.liquid,
+   so these declarations win the cascade at equal specificity.
+   Source of truth for the values below: project/tokens/*.css and
+   project/readme.md (VISUAL FOUNDATIONS) in the design-system handoff.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. Webfonts — Newshound is the brand's entire typographic voice.
+   --------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Newshound';
+  src: url('newshound-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newshound';
+  src: url('newshound-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newshound Subhead';
+  src: url('newshound-subhead.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newshound Headline';
+  src: url('newshound-headline.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newshound Banner';
+  src: url('newshound-banner.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---- Brand tokens (project/tokens/*.css, ported verbatim) ---- */
+  --ikken-paper-000: #f2f5f5;
+  --ikken-paper-100: #e9eded;
+  --ikken-paper-200: #e4e9e9;
+  --ikken-paper-300: #dbe1e1;
+  --ikken-ink-900: #1c1e1e;
+  --ikken-ink-800: #2a2a2b;
+  --ikken-ink-600: #4a4f52;
+  --ikken-ink-400: #7d8588;
+  --ikken-ink-300: #9aa2a4;
+  --ikken-ink-200: #b9c0c1;
+
+  --ikken-cw-brick: #9a4f53;
+  --ikken-cw-bone: #d5d4c2;
+  --ikken-cw-black: #2a2a2b;
+  --ikken-cw-teal: #356b65;
+  --ikken-cw-forest: #476851;
+  --ikken-cw-dust-blue: #6596aa;
+  --ikken-cw-plum: #554872;
+  --ikken-cw-ochre: #ceaa43;
+
+  --ikken-font-display: 'Newshound', ui-sans-serif, sans-serif;
+  --ikken-font-ui: 'Newshound', ui-sans-serif, sans-serif;
+  --ikken-font-body: 'Newshound', ui-sans-serif, sans-serif;
+  --ikken-font-condensed: 'Newshound Headline', 'Newshound', ui-sans-serif, sans-serif;
+  --ikken-font-condensed-tight: 'Newshound Banner', 'Newshound', ui-sans-serif, sans-serif;
+  --ikken-font-subhead: 'Newshound Subhead', 'Newshound', ui-sans-serif, sans-serif;
+
+  --ikken-tr-nav: 0.34em;
+  --ikken-tr-label: 0.22em;
+  --ikken-tr-title: 0.06em;
+  --ikken-tr-body: 0.02em;
+
+  --ikken-frame-inset-x: 56px;
+  --ikken-frame-inset-y: 40px;
+  --ikken-gutter-product: 88px;
+  --ikken-row-product: 120px;
+  --ikken-measure-body: 34ch;
+  --ikken-measure-about: 64ch;
+
+  --ikken-halo-object: 0 40px 60px -30px rgba(75, 77, 74, 0.28);
+  --ikken-halo-object-soft: 0 24px 40px -24px rgba(75, 77, 74, 0.18);
+  --ikken-border-hair: 1px solid var(--ikken-ink-200);
+
+  --ikken-dur-fast: 180ms;
+  --ikken-dur-base: 420ms;
+  --ikken-dur-slow: 900ms;
+  --ikken-dur-drift: 16s;
+  --ikken-ease-settle: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ikken-hover-fade: 0.45;
+  --ikken-press-fade: 0.28;
+  --ikken-press-shift: 1px;
+
+  --ikken-footer-bar-height: 76px;
+
+  /* ---- Re-point Horizon's own type system at Newshound ---- */
+  --font-body--family: var(--ikken-font-body);
+  --font-heading--family: var(--ikken-font-display);
+  --font-subheading--family: var(--ikken-font-subhead);
+  --font-accent--family: var(--ikken-font-condensed);
+  --font-heading--spacing: var(--ikken-tr-title);
+
+  /* ---- Flatten every radius: nothing in IKKEN is rounded ---- */
+  --style-border-radius-xs: 0;
+  --style-border-radius-sm: 0;
+  --style-border-radius-md: 0;
+  --style-border-radius-lg: 0;
+  --style-border-radius-pills: 0;
+  --style-border-radius-inputs: 0;
+  --style-border-radius-buttons-primary: 0;
+  --style-border-radius-buttons-secondary: 0;
+  --style-border-radius-popover: 0;
+  --variant-picker-swatch-radius: 0;
+  --variant-picker-button-radius: 0;
+
+  /* ---- Depth: a ground halo, never a hard drop shadow ---- */
+  --shadow-button: none;
+  --shadow-drawer: none;
+  --shadow-popover: 0 12px 32px -20px rgba(75, 77, 74, 0.3);
+
+  /* ---- Motion: slow, weightless, no bounce ---- */
+  --animation-speed-fast: calc(var(--ikken-dur-fast) / 2);
+  --animation-speed: var(--ikken-dur-fast);
+  --animation-speed-medium: var(--ikken-dur-base);
+  --animation-speed-slow: var(--ikken-dur-slow);
+  --animation-easing: var(--ikken-ease-settle);
+  --drawer-animation-speed: var(--ikken-dur-base);
+}
+
+/* ---------------------------------------------------------------------
+   2. Ground — the pale mineral plate every screen sits on.
+   --------------------------------------------------------------------- */
+body {
+  background-color: var(--ikken-paper-200);
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media (max-width: 749px) {
+  body {
+    background-image: url('background-small.jpg');
+  }
+}
+
+/* ---------------------------------------------------------------------
+   3. Header — logo top-left, cart + language top-right, no fill.
+      Horizon's own sticky-header mechanics are left untouched; only its
+      colours, borders and type are re-skinned.
+   --------------------------------------------------------------------- */
+#header-group,
+.header-section,
+#header-component {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#header-component .header__row {
+  border: none !important;
+}
+
+#header-component a,
+#header-component button {
+  color: var(--ikken-ink-900);
+}
+
+.header-menu,
+#header-component nav {
+  font-family: var(--ikken-font-ui);
+  font-weight: 700;
+  letter-spacing: var(--ikken-tr-nav);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* ---------------------------------------------------------------------
+   4. Footer — "the nav is the footer" (primary nav moved into the
+      sticky header's second row instead; see theme README for why).
+      What remains here are two fixed corner marks — the wordmark and a
+      minimal legal line — floating over the scrolling content, never a
+      filled footer bar.
+   --------------------------------------------------------------------- */
+.page-wrapper > footer {
+  background: transparent;
+  min-height: 0;
+}
+
+.page-wrapper > footer .footer-content,
+.page-wrapper > footer .section,
+.page-wrapper > footer .section-background {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  display: contents !important;
+}
+
+.ikken-wordmark,
+.ikken-legal {
+  position: fixed;
+  bottom: var(--ikken-frame-inset-y);
+  z-index: var(--layer-sticky, 8);
+  pointer-events: auto;
+}
+
+.ikken-wordmark {
+  right: var(--ikken-frame-inset-x);
+}
+
+.ikken-wordmark img {
+  width: 130px;
+  height: auto;
+  display: block;
+}
+
+.ikken-legal {
+  left: var(--ikken-frame-inset-x);
+  font-family: var(--ikken-font-ui);
+  font-weight: 700;
+  letter-spacing: var(--ikken-tr-label);
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  color: var(--ikken-ink-400);
+}
+
+.ikken-legal a {
+  color: inherit;
+}
+
+.ikken-legal a:hover {
+  opacity: var(--ikken-hover-fade);
+}
+
+main#MainContent {
+  padding-bottom: calc(var(--ikken-frame-inset-y) * 2 + 24px);
+}
+
+@media (max-width: 749px) {
+  .ikken-wordmark img {
+    width: 90px;
+  }
+
+  .ikken-legal {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   5. Buttons — tracked uppercase ink type over a hairline underline.
+      Never a filled pill.
+   --------------------------------------------------------------------- */
+.button,
+.button-secondary {
+  background: transparent !important;
+  color: var(--ikken-ink-900) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--ikken-ink-900) !important;
+  border-radius: 0 !important;
+  padding: 0.1em 0.05em 0.35em !important;
+  font-family: var(--ikken-font-ui) !important;
+  font-weight: 700 !important;
+  letter-spacing: var(--ikken-tr-label) !important;
+  text-transform: uppercase !important;
+  transition: opacity var(--ikken-dur-fast) var(--ikken-ease-settle);
+}
+
+.button:hover,
+.button-secondary:hover {
+  opacity: var(--ikken-hover-fade);
+  background: transparent !important;
+}
+
+.button:active,
+.button-secondary:active {
+  opacity: var(--ikken-press-fade);
+  transform: translateY(var(--ikken-press-shift));
+}
+
+.button[aria-disabled='true'],
+.button-secondary[aria-disabled='true'],
+.button:disabled {
+  opacity: 0.35;
+  border-bottom-color: var(--ikken-ink-300) !important;
+}
+
+/* ---------------------------------------------------------------------
+   6. Cards / product grid — no boxes, no radius, no drop shadow.
+      Depth comes from a soft ground halo on hover only.
+   --------------------------------------------------------------------- */
+.card,
+.product-card,
+.collection-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.card__media,
+.product-card img,
+.collection-card img {
+  border-radius: 0 !important;
+  transition: filter var(--ikken-dur-base) var(--ikken-ease-settle),
+    transform var(--ikken-dur-base) var(--ikken-ease-settle);
+}
+
+.product-card:hover img,
+.card:hover .card__media img {
+  filter: drop-shadow(0 26px 30px rgba(75, 77, 74, 0.22));
+  transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------------
+   7. Variant swatches / pickers — square, hairline selection, no fill.
+   --------------------------------------------------------------------- */
+.swatch,
+[class*='variant-swatch'] {
+  border-radius: 0 !important;
+}
+
+.swatch-input__input:checked + .swatch,
+[aria-checked='true'] .swatch,
+.variant-picker-swatch--selected {
+  outline: 1px solid var(--ikken-ink-900) !important;
+  outline-offset: 3px;
+  box-shadow: none !important;
+}
+
+/* ---------------------------------------------------------------------
+   8. Forms — bottom-hairline inputs, tracked uppercase labels.
+   --------------------------------------------------------------------- */
+input:where(
+    [type='text'],
+    [type='email'],
+    [type='tel'],
+    [type='number'],
+    [type='password'],
+    [type='search'],
+    [type='url'],
+    :not([type])
+  ),
+textarea,
+select {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--ikken-ink-200) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--ikken-font-body);
+}
+
+input:where(
+    [type='text'],
+    [type='email'],
+    [type='tel'],
+    [type='number'],
+    [type='password'],
+    [type='search'],
+    [type='url'],
+    :not([type])
+  ):focus,
+textarea:focus,
+select:focus {
+  border-bottom-color: var(--ikken-ink-900) !important;
+  outline: none !important;
+}
+
+label,
+.field__label {
+  font-family: var(--ikken-font-ui);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: var(--ikken-tr-label);
+  text-transform: uppercase;
+  color: var(--ikken-ink-400);
+}
+
+/* ---------------------------------------------------------------------
+   9. Cart drawer — hairline rows, no card chrome.
+   --------------------------------------------------------------------- */
+cart-drawer .drawer,
+#cart-drawer {
+  background: var(--ikken-paper-200) !important;
+  border-left: var(--ikken-border-hair) !important;
+  box-shadow: none !important;
+}
+
+.cart-items-list li,
+.cart-item {
+  border-bottom: var(--ikken-border-hair) !important;
+  border-radius: 0 !important;
+}
+
+.cart-item img,
+.cart-items-list img {
+  border-radius: 0 !important;
+}
+
+/* ---------------------------------------------------------------------
+   10. Motion — respect reduced-motion; nothing bounces or springs.
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

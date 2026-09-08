@@ -1,0 +1,135 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about_intro": {
+      "type": "section",
+      "blocks": {
+        "title": {
+          "type": "text",
+          "settings": {
+            "text": "<p>about</p>",
+            "width": "fit-content",
+            "alignment": "center",
+            "type_preset": "h5",
+            "font": "var(--font-subheading--family)",
+            "font_size": "1.25rem",
+            "case": "none",
+            "padding-block-end": 32
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ikken makes one thing at a time. clothes first — then tea, pots, ashtrays, objects for the house. each piece is dyed and stamped by hand, so no two land the same.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "case": "none",
+            "padding-block-end": 32
+          }
+        },
+        "couplet_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>nothing is finished.</p>",
+            "width": "fit-content",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-subheading--family)",
+            "case": "none"
+          }
+        },
+        "couplet_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>everything wears.</p>",
+            "width": "fit-content",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-subheading--family)",
+            "case": "none",
+            "padding-block-start": 8
+          }
+        },
+        "couplet_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>one stone, one mark.</p>",
+            "width": "fit-content",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-subheading--family)",
+            "case": "none",
+            "padding-block-start": 8
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "body",
+        "couplet_1",
+        "couplet_2",
+        "couplet_3"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "padding-block-start": 96,
+        "padding-block-end": 64
+      }
+    },
+    "about_editorial": {
+      "type": "section",
+      "blocks": {
+        "atelier": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "portrait",
+            "width": "fill"
+          }
+        },
+        "outdoors_no_figure": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "portrait",
+            "width": "fill"
+          }
+        }
+      },
+      "block_order": [
+        "atelier",
+        "outdoors_no_figure"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 96
+      }
+    }
+  },
+  "order": [
+    "about_intro",
+    "about_editorial"
+  ]
+}

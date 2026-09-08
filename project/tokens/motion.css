@@ -1,0 +1,12 @@
+:root{
+/* Slow, weightless, no bounce. Things surface and settle like sediment. */
+--dur-fast:180ms; /* @kind other */
+--dur-base:420ms; /* @kind other */
+--dur-slow:900ms; /* @kind other */
+--dur-drift:16s; /* @kind other */              /* ambient stone drift / background breathing */
+--ease-settle:cubic-bezier(.22,.61,.36,1); /* @kind other */
+--ease-linear:linear; /* @kind other */
+--hover-fade:.45; /* @kind other */             /* links fade rather than change colour */
+--press-fade:.28; /* @kind other */
+--press-shift:1px; /* @kind spacing */            /* stamped type nudges down on press, never scales */
+}
