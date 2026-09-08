@@ -170,10 +170,12 @@ body {
    --------------------------------------------------------------------- */
 .page-type-index #shopify-section-hero_home {
   position: fixed;
+  /* inset: 0 (not width/height: 100vw/100dvh) so the box always stretches
+     to the true viewport edges — a vh/dvh value can render a few pixels
+     short of the real viewport and leave a visible gap at the bottom. */
   inset: 0;
   z-index: var(--layer-section-background, -2);
-  width: 100vw;
-  height: 100dvh;
+  margin: 0;
 }
 
 .page-type-index #shopify-section-hero_home .hero,
