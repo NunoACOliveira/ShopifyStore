@@ -19,10 +19,11 @@ still be merged in later without re-doing this work.
 - `config/settings_data.json` — brand colour palette (paper/ink), zero corner radius everywhere,
   no drop shadows, system-font placeholders swapped in for the unused Google fonts Horizon ships
   with by default.
-- `sections/header-group.json` — logo top-left, primary nav as the header's second row, cart +
-  language switcher top-right, no announcement bar, sticky, transparent.
-- `sections/footer-group.json` — trimmed to two fixed corner marks: the wordmark (bottom-right)
-  and a minimal privacy/terms line (bottom-left). No footer bar.
+- `sections/header-group.json` — logo top-left, cart + language switcher top-right, no
+  announcement bar, sticky, transparent. Horizon's own nav menu component is hidden here (see
+  below) — the primary nav lives in the footer instead, per the brand's fixed-frame design.
+- `sections/footer-group.json` — the primary nav fixed at bottom-center, the wordmark fixed
+  bottom-right, and a minimal privacy/terms line fixed bottom-left. No footer bar.
 - `templates/index.json` — home: hero media slot, the philosophy statement, an editorial image
   pair.
 - `templates/page.about.json` — About: centred prose + the philosophy couplet + an editorial pair.
@@ -58,14 +59,14 @@ These were confirmed up front (see session transcript) rather than assumed:
 
 Flagging these explicitly, the same way the design bundle's own `README.md` flags its deviations:
 
-- **Primary nav lives in the header's second row, not a fixed bottom-center bar.** The original
-  design calls for four fixed corner anchors (logo, cart, nav, wordmark) with only the content
-  between them scrolling. Horizon's header has robust, JS-managed sticky/mobile-drawer/accessibility
-  behaviour that a `position: fixed` rewrite would risk breaking; its footer has none of that, so
-  only the footer half of the frame (wordmark + legal line) is truly pinned to the viewport via
-  CSS. The header stays natively sticky at the top instead of being forced to the bottom. Net
-  result: 3 of 4 anchors match exactly (logo top-left, cart top-right, wordmark bottom-right); nav
-  is top-anchored rather than bottom-anchored, always visible while scrolling either way.
+- **The header's own nav component is hidden via CSS (`header-menu { display: none }`), not
+  removed from the section.** `sections/header.liquid` renders Horizon's `<header-menu>` custom
+  element unconditionally — it's not gated by any block/settings toggle, so there's no way to omit
+  it from `header-group.json` without forking that file. Hiding the rendered element is the only
+  non-invasive way to keep the nav out of the header. The real, functioning main menu lives in the
+  footer (`sections/footer-group.json`, `main_nav` block), fixed to the bottom-center of the
+  viewport with the wordmark and legal line at the other two bottom corners — matching the
+  brand's four-fixed-corner frame.
 - **No hero/editorial photography or film is shipped.** The mockups' own reference images
   (`project/refs/*`) are explicitly "reference only, not shipped" per the design system's own
   rules, and I can't generate photography. Every media slot in `index.json`, `page.about.json`,

@@ -182,21 +182,19 @@ body {
   color: var(--ikken-ink-900);
 }
 
-.header-menu,
-#header-component nav {
-  font-family: var(--ikken-font-ui);
-  font-weight: 700;
-  letter-spacing: var(--ikken-tr-nav);
-  text-transform: uppercase;
-  font-size: 0.75rem;
+/* The primary nav lives in the footer (see below), not the header — hide
+   Horizon's <header-menu> custom element. It's unconditionally rendered by
+   sections/header.liquid regardless of block settings, so this is the only
+   way to remove it without forking that file. */
+#header-component header-menu {
+  display: none !important;
 }
 
 /* ---------------------------------------------------------------------
-   4. Footer — "the nav is the footer" (primary nav moved into the
-      sticky header's second row instead; see theme README for why).
-      What remains here are two fixed corner marks — the wordmark and a
-      minimal legal line — floating over the scrolling content, never a
-      filled footer bar.
+   4. Footer — "the nav is the footer". The primary nav sits fixed at
+      bottom-center, with the wordmark and a minimal legal line as the
+      other two fixed corner marks — floating over the scrolling
+      content, never a filled footer bar.
    --------------------------------------------------------------------- */
 .page-wrapper > footer {
   background: transparent;
@@ -215,7 +213,8 @@ body {
 }
 
 .ikken-wordmark,
-.ikken-legal {
+.ikken-legal,
+.page-wrapper > footer .menu {
   position: fixed;
   bottom: var(--ikken-frame-inset-y);
   z-index: var(--layer-sticky, 8);
@@ -224,6 +223,53 @@ body {
 
 .ikken-wordmark {
   right: var(--ikken-frame-inset-x);
+}
+
+/* Footer nav — block markup is .menu > details > nav.details-content >
+   ul.list-unstyled > li > a. The heading/summary is hidden (blank on
+   purpose) and the link list is laid out as a centered horizontal row. */
+.page-wrapper > footer .menu {
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+.page-wrapper > footer .menu summary,
+.page-wrapper > footer .menu .menu__heading {
+  display: none;
+}
+
+.page-wrapper > footer .menu ul {
+  display: flex;
+  gap: var(--ikken-frame-inset-x);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper > footer .menu a {
+  font-family: var(--ikken-font-ui);
+  font-weight: 700;
+  letter-spacing: var(--ikken-tr-nav);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--ikken-ink-900);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.page-wrapper > footer .menu a:hover {
+  opacity: var(--ikken-hover-fade);
+}
+
+@media (max-width: 749px) {
+  .page-wrapper > footer .menu ul {
+    gap: var(--ikken-frame-inset-y);
+  }
+
+  .page-wrapper > footer .menu a {
+    font-size: 0.625rem;
+  }
 }
 
 .ikken-wordmark img {
