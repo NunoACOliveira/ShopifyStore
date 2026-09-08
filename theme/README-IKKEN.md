@@ -19,11 +19,14 @@ still be merged in later without re-doing this work.
 - `config/settings_data.json` — brand colour palette (paper/ink), zero corner radius everywhere,
   no drop shadows, system-font placeholders swapped in for the unused Google fonts Horizon ships
   with by default.
-- `sections/header-group.json` — logo top-left, cart + language switcher top-right, no
-  announcement bar, sticky, transparent. Horizon's own nav menu component is hidden here (see
-  below) — the primary nav lives in the footer instead, per the brand's fixed-frame design.
-- `sections/footer-group.json` — the primary nav fixed at bottom-center, the wordmark fixed
-  bottom-right, and a minimal privacy/terms line fixed bottom-left. No footer bar.
+- `sections/header-group.json` — logo top-left, primary nav as the header's second row, cart +
+  language switcher top-right, no announcement bar, sticky, transparent.
+- `sections/footer-group.json` — trimmed to two fixed corner marks: the wordmark (bottom-right)
+  and a minimal privacy/terms line (bottom-left). No footer bar.
+- **Homepage only**: the hero's image/video becomes a fixed, full-viewport backdrop
+  (`.page-type-index #shopify-section-hero_home` in `ikken-theme.css`) instead of a bounded top
+  section, so the same media is visible continuously behind the philosophy statement, the
+  editorial pair, and the footer as the page scrolls — one plate for the whole page.
 - `templates/index.json` — home: hero media slot, the philosophy statement, an editorial image
   pair.
 - `templates/page.about.json` — About: centred prose + the philosophy couplet + an editorial pair.
@@ -59,14 +62,13 @@ These were confirmed up front (see session transcript) rather than assumed:
 
 Flagging these explicitly, the same way the design bundle's own `README.md` flags its deviations:
 
-- **The header's own nav component is hidden via CSS (`header-menu { display: none }`), not
-  removed from the section.** `sections/header.liquid` renders Horizon's `<header-menu>` custom
-  element unconditionally — it's not gated by any block/settings toggle, so there's no way to omit
-  it from `header-group.json` without forking that file. Hiding the rendered element is the only
-  non-invasive way to keep the nav out of the header. The real, functioning main menu lives in the
-  footer (`sections/footer-group.json`, `main_nav` block), fixed to the bottom-center of the
-  viewport with the wordmark and legal line at the other two bottom corners — matching the
-  brand's four-fixed-corner frame.
+- **Primary nav lives in the header's second row, not a fixed bottom-center bar.** An earlier
+  version of this theme moved the nav into the footer, fixed to bottom-center, to match the
+  mockups' four-fixed-corner frame exactly. That relied on hiding Horizon's `<header-menu>` custom
+  element via CSS (`sections/header.liquid` renders it unconditionally, with no settings toggle to
+  omit it) and rendering a second `menu` block in the footer instead — but the footer menu didn't
+  reliably render, so this was reverted at the client's request. The nav is back in the header
+  (native, guaranteed to work); only the wordmark and legal line are fixed to the footer corners.
 - **No hero/editorial photography or film is shipped.** The mockups' own reference images
   (`project/refs/*`) are explicitly "reference only, not shipped" per the design system's own
   rules, and I can't generate photography. Every media slot in `index.json`, `page.about.json`,
