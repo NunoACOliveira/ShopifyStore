@@ -168,26 +168,41 @@ body {
        scrolls — one plate for the whole page, not a hero band that
        ends before the footer.
    --------------------------------------------------------------------- */
-.page-type-index #shopify-section-hero_home {
-  position: fixed;
+/* sections/hero.liquid renders its own root element as
+   `<div id="Hero-{{ section.id }}" class="hero" style="--hero-min-height:...">`,
+   with its OWN stylesheet setting `.hero { position: relative; min-height: ... }`.
+   That's the element to override directly — targeting the outer Shopify
+   section wrapper (#shopify-section-hero_home) doesn't reach it, which is
+   why an earlier version of this fix had no effect: the hero stayed in
+   normal document flow (matching the viewport height at scroll position 0
+   by coincidence, via Horizon's own "full screen" sizing) and any content
+   after it — even the transparent padding reserved for the footer marks
+   below — showed the plain paper background once scrolled into view. */
+.page-type-index #Hero-hero_home {
+  position: fixed !important;
   /* inset: 0 (not width/height: 100vw/100dvh) so the box always stretches
      to the true viewport edges — a vh/dvh value can render a few pixels
      short of the real viewport and leave a visible gap at the bottom. */
-  inset: 0;
+  inset: 0 !important;
   z-index: var(--layer-section-background, -2);
   margin: 0;
+  min-height: 0 !important;
 }
 
-.page-type-index #shopify-section-hero_home .hero,
-.page-type-index #shopify-section-hero_home img,
-.page-type-index #shopify-section-hero_home video {
-  width: 100%;
-  height: 100%;
+.page-type-index #Hero-hero_home .hero__container,
+.page-type-index #Hero-hero_home .hero__media-grid,
+.page-type-index #Hero-hero_home .hero__media-wrapper,
+.page-type-index #Hero-hero_home img,
+.page-type-index #Hero-hero_home video {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
   object-fit: cover;
 }
 
 .page-type-index main#MainContent {
   background: transparent;
+  padding-bottom: 0 !important;
 }
 
 /* ---------------------------------------------------------------------
