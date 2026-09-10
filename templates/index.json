@@ -16,11 +16,11 @@
           "type": "image",
           "name": "t:names.image",
           "settings": {
-            "image": "shopify://shop_images/IMG-20260907-WA0032-removebg-preview.png",
+            "image": "shopify://shop_images/IMG-20260907-WA0032-removebg-preview_8f797321-5427-4137-a9de-f7c821436c00.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
-            "custom_width": 30,
+            "custom_width": 20,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
