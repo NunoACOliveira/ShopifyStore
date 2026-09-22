@@ -1,0 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "terms": {
+      "type": "section",
+      "blocks": {
+        "shipping_label": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SHIPPING</p>",
+            "width": "custom",
+            "custom_width": 25,
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-heading--family)",
+            "font_size": "0.6875rem",
+            "case": "uppercase"
+          }
+        },
+        "shipping_body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>pieces ship within five working days. tracked, worldwide.</p>",
+            "width": "fill",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-accent--family)",
+            "font_size": "0.875rem",
+            "case": "none",
+            "padding-block-end": 32
+          }
+        },
+        "returns_label": {
+          "type": "text",
+          "settings": {
+            "text": "<p>RETURNS</p>",
+            "width": "custom",
+            "custom_width": 25,
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-heading--family)",
+            "font_size": "0.6875rem",
+            "case": "uppercase"
+          }
+        },
+        "returns_body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>fourteen days, unworn, tags on. wash marks and fades from wear are not faults.</p>",
+            "width": "fill",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-accent--family)",
+            "font_size": "0.875rem",
+            "case": "none",
+            "padding-block-end": 32
+          }
+        },
+        "care_label": {
+          "type": "text",
+          "settings": {
+            "text": "<p>CARE</p>",
+            "width": "custom",
+            "custom_width": 25,
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-heading--family)",
+            "font_size": "0.6875rem",
+            "case": "uppercase"
+          }
+        },
+        "care_body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>wash cold. dry flat in shade. the print will soften. that is the point.</p>",
+            "width": "fill",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-accent--family)",
+            "font_size": "0.875rem",
+            "case": "none",
+            "padding-block-end": 32
+          }
+        },
+        "payment_label": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PAYMENT</p>",
+            "width": "custom",
+            "custom_width": 25,
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-heading--family)",
+            "font_size": "0.6875rem",
+            "case": "uppercase"
+          }
+        },
+        "payment_body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>handled by shopify. we never see your card.</p>",
+            "width": "fill",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-accent--family)",
+            "font_size": "0.875rem",
+            "case": "none"
+          }
+        }
+      },
+      "block_order": [
+        "shipping_label",
+        "shipping_body",
+        "returns_label",
+        "returns_body",
+        "care_label",
+        "care_body",
+        "payment_label",
+        "payment_body"
+      ],
+      "name": "t:names.section",
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "gap": 4,
+        "section_width": "page-width",
+        "padding-block-start": 96,
+        "padding-block-end": 96
+      }
+    }
+  },
+  "order": [
+    "terms"
+  ]
+}
